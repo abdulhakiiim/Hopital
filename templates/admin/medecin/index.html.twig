@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+    {% block containt %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Matricule</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Téléphone</th>
+                    <th>Date de Naissance</th>
+                    <th>Service</th>
+                    
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medecin in medecins %}
+                <tr>
+                    <td scope="row">{{medecin.matricule}}</td>
+                    <td>{{medecin.prenom}}</td>
+                    <td>{{medecin.nom}}</td>
+                    <td>{{medecin.tel}}</td>
+                    <td>{{medecin.datenais | date()}}</td>
+                    <td>{{medecin.service.libelle}}</td>
+                    
+                        <td>
+                            <a class="btn btn-primary" href="{{ path('admin.medecin.edit', {id: medecin.id}) }}" role="button">Modifier</a>
+                            <a href="{{ path('admin.medecin.delete', {id: medecin.id}) }}">
+                            <a class="btn btn-danger" href="{{ path('admin.medecin.delete', {id: medecin.id}) }}" role="button">Supprimer</a>
+                            </a>
+                        </td>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}

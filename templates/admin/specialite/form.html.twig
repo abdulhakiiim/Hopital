@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block containt %}
+{{ form_start(form)}}
+    {{form_row(form.libelle)}}
+    {{form_row(form.service)}}
+    {{ form_row(form.save, { 'label': 'Enregistrer' }) }}
+{{ form_start(form)}}
+{% endblock %}
